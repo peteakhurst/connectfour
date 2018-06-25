@@ -20,3 +20,15 @@ body {
 .next-red {
   background: rgba(255,0,0,0.2)
 }
+
+.next-black {
+  background: rgba(0,0,0,0.2)
+}
+
+.col.red {
+  background: red;
+}
+
+.col.black {
+  background: black;
+}
