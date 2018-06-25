@@ -41,21 +41,22 @@ class Connect4 {
     $board.on('mouseenter', '.col.empty', function() {
       const col = $(this).data('col');
       const $lastEmptyCell = findLastEmptyCell(col);
-      $lastEmptyCell.addClass('next-red');
+      $lastEmptyCell.addClass(`next-${that.player}`);
 
     });
 
     $board.on('mouseleave', '.col', function() {
-      $('.col').removeClass('next-red');
+      $('.col').removeClass(`next-${that.player}`);
     })
 
     $board.on('click', '.col.empty', function(){
       const col = $(this).data('col');
       const row = $(this).data('row');
       const $lastEmptyCell = findLastEmptyCell(col);
-      $lastEmptyCell.removeClass('empty');
+      $lastEmptyCell.removeClass(`empty next-${that.player}`);
       $lastEmptyCell.addClass(that.player);
       that.player = (that.player === 'red') ? 'black' : 'red';
+      $(this).trigger('mouseenter');
     })
   }
 }
